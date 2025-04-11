@@ -3,7 +3,6 @@ import flet as ft
 def main(page: ft.Page):
 
     page.title= "Truth or Dare"
-    page.padding = 20
     page.update()
 
     #Page Fonts
