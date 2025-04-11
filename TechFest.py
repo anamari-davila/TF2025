@@ -2,6 +2,11 @@ import flet as ft
 
 def main(page: ft.Page):
 
+    page.title= "Truth or Dare"
+    page.padding = 20
+    page.horizontal_alignment= ft.CrossAxisAlignment.CENTER
+    page.update()
+
     #Page Fonts
     page.fonts = {
         "TODF" : "TODF.ttf"
