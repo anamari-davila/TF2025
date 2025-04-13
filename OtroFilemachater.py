@@ -2,17 +2,44 @@ import flet as ft
 
 def main(page: ft.Page):
 
+    page.title= "Truth or Dare"
+    page.update()
+
+    #Page Fonts
+    page.fonts = {
+        "TODF" : "TODF.ttf"
+    }
     #PageSize
     page.window.width = 1500
     page.window.height = 900
     page.window.bgcolor = ft.Colors.BLACK
 
+    #Main Title
+    Truth = ft.Text(value = "TRUTH", font_family="TODF", size = 200, color= "#00bf63")
+    Dare = ft.Text(value = "DARE", font_family="TODF", size = 200, color = "#ff3131")
+    Or = ft.ElevatedButton(content = ft.Text(value = "OR", font_family="TODF", color= ft.Colors.BLACK, size =30), bgcolor=ft.Colors.WHITE)
+    StackTitle = ft.Stack(
+        [
+            ft.Image(
+                src="truth.png", 
+                height=850, 
+                width=1480
+            ), 
+            
+            ft.Row(controls=[Truth, Or, Dare], 
+                   alignment=ft.MainAxisAlignment.CENTER,
+                   spacing=50
+            
+            )
+        ]
+    )
+
     #Background Gradient
-    container21 = ft.Container(gradient=ft.LinearGradient(colors=["#000000", "#3230c1"]), height = 850, width=725) 
-    container1 = ft.Container(gradient=ft.LinearGradient(colors=["#3230c1", "#000000"]), height = 850, width=725, margin= -20)
-    #this is a test comment
-    #Rows
-    MainRow = ft.Row(controls=[container1, container21])
+    
+    #Text
+
+    #Rows & Columns
+    MainRow = StackTitle
     page.add(MainRow)
 
     #Test comment
