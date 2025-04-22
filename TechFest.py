@@ -87,6 +87,6 @@ def main(page: ft.Page):
     page.add(MainRow)
 
     #GAME PAGE 
-
     
+
 ft.app(target= main, assets_dir= "assets")
