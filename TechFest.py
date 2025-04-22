@@ -35,9 +35,9 @@ def main(page: ft.Page):
                 )
 
     Dare = ft.Container(content=ft.Text(value = "DARE", 
-                   font_family="TODF", 
-                   size = 200, 
-                   color = "#ff3131"
+                font_family="TODF", 
+                size = 200, 
+                color = "#ff3131"
                 ),
                 on_click=pruebalol
                 )
@@ -68,16 +68,16 @@ def main(page: ft.Page):
                                     height=850,
                                     width=1480
                                 ), 
-                           
-                           ft.Column([Truth, Or, Dare], 
-                                     spacing=-95,
-                                     alignment=ft.MainAxisAlignment.CENTER, 
-                                     horizontal_alignment=ft.CrossAxisAlignment.CENTER,), 
+                        
+                        ft.Column([Truth, Or, Dare], 
+                                    spacing=-95,
+                                    alignment=ft.MainAxisAlignment.CENTER, 
+                                    horizontal_alignment=ft.CrossAxisAlignment.CENTER,), 
 
                             ft.Column([ornamentacionvacia,ornamentacionvacia,ornamentacionvacia,Advise],
-                                      spacing=225,  
-                                      alignment=ft.MainAxisAlignment.CENTER, 
-                                      horizontal_alignment=ft.CrossAxisAlignment.CENTER)
+                                    spacing=225,  
+                                    alignment=ft.MainAxisAlignment.CENTER, 
+                                    horizontal_alignment=ft.CrossAxisAlignment.CENTER)
                             
                             ], 
                             alignment=ft.alignment.center
