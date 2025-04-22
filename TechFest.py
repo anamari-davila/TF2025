@@ -19,9 +19,9 @@ def main(page: ft.Page):
     def pruebalol(e):
         print("Hola")
         if Truth.visible == True:
-            Truth.visible=False
+            pass
         else:
-            Truth.visible = True
+            pass
         page.update()
 
 
