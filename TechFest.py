@@ -85,8 +85,7 @@ def main(page: ft.Page):
     #Rows & Columns
     MainRow = ft.Row(controls=[ContainerTitle])
     page.add(MainRow)
-
-    #GAME PAGE 
     
+        
 
 ft.app(target= main, assets_dir= "assets")
