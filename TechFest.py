@@ -88,6 +88,6 @@ def main(page: ft.Page):
     MainRow = ft.Row(controls=[StackTitle])
     page.add(MainRow)
 
-    #Test comment
+    #Test: comment
 
 ft.app(target= main, assets_dir= "assets")
