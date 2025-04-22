@@ -87,7 +87,6 @@ def main(page: ft.Page):
     page.add(MainRow)
 
     #GAME PAGE 
-
-    GameStack = ft.Stack([ft.Image(src="truth.png", height=850, width=1480)], visible=True)
+    
 
 ft.app(target= main, assets_dir= "assets")
