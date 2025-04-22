@@ -16,30 +16,29 @@ def main(page: ft.Page):
     page.window.height = 900
     page.window.bgcolor = ft.Colors.BLACK
 
-    def pruebalol(e):
-        print("Hola")
-        if Truth.visible == True:
-            pass
+    def ShowGame(e):
+        if ContainerTitle.visible == True:
+            Truth.visible=False
+            Dare.visible=False
+            Advise.visible=False
+            Or.visible=False
         else:
             pass
         page.update()
-
 
     #Main Title
     Truth = ft.Container(content=ft.Text(value = "TRUTH", 
                     font_family="TODF", 
                     size = 200, 
                     color= "#00bf63"
-                ),
-                on_click=pruebalol
+                )
                 )
 
     Dare = ft.Container(content=ft.Text(value = "DARE", 
                 font_family="TODF", 
                 size = 200, 
                 color = "#ff3131"
-                ),
-                on_click=pruebalol
+                )
                 )
 
     Advise= ft.Text(value = "Press the title to begin", 
@@ -59,9 +58,7 @@ def main(page: ft.Page):
                             ),
                                 bgcolor=ft.Colors.WHITE, 
                                 on_click=None
-                        ), 
-                        on_click=pruebalol,
-                        shape=ft.CircleBorder()
+                        ),shape=ft.CircleBorder()
                     )
     
     StackTitle = ft.Stack([ft.Image(src="truth.png", 
@@ -82,12 +79,15 @@ def main(page: ft.Page):
                             ], 
                             alignment=ft.alignment.center
                     )
+    ContainerTitle = ft.Container(content=StackTitle, on_click=ShowGame)
     
 
     #Rows & Columns
-    MainRow = ft.Row(controls=[StackTitle])
+    MainRow = ft.Row(controls=[ContainerTitle])
     page.add(MainRow)
 
-    #Test comment
+    #GAME PAGE 
+
+    GameStack = ft.Stack([ft.Image(src="truth.png", height=850, width=1480)], visible=True)
 
 ft.app(target= main, assets_dir= "assets")
