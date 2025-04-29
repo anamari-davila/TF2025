@@ -109,7 +109,7 @@ def main(page: ft.Page):
                                 size =75
                             ),
                                 bgcolor=ft.Colors.WHITE, 
-                                on_click=None
+                                
                         ),shape=ft.CircleBorder(), 
                         left=660,
                         top=375,
@@ -166,7 +166,8 @@ def main(page: ft.Page):
                     left= 152,
                     top= 335,
                     opacity=0,
-                    animate_opacity= 900
+                    animate_opacity= 900,
+                    on_click=None
                     
                 )
     
@@ -183,7 +184,8 @@ def main(page: ft.Page):
                     left= 1050,
                     top= 335,
                     opacity=0,
-                    animate_opacity= 900
+                    animate_opacity= 900,
+                on_click=None
             )
 
     #The Stacks, all the elements
