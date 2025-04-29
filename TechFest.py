@@ -28,6 +28,7 @@ def main(page: ft.Page):
         Truth.scale = 0.45
         Dare.scale = 0.45
         Or.scale = 0.75
+        Advise.opacity= 0
         page.update()
         casabella=0
         while True:
@@ -46,6 +47,10 @@ def main(page: ft.Page):
         await asyncio.sleep(1)
         green.opacity = 0.4 
         red.opacity = 0.4
+        page.update()
+        await asyncio.sleep(1)
+        truths.opacity = 1
+        falses.opacity = 1
         page.update()
 
         await asyncio.sleep(2)
@@ -79,13 +84,17 @@ def main(page: ft.Page):
                 animate_opacity= 100
                 )
 
-    Advise= ft.Text(value = "Press the title to begin", 
-                    font_family="TODF", 
-                    size = 14, 
-                    color =ft.colors.WHITE,
-                    visible=True,
-                    
-                )
+    Advise= ft.Container(content=ft.Text(value = "Press the title to begin", 
+                        font_family="TODF", 
+                        size = 14, 
+                        color =ft.colors.WHITE,
+                    ),
+                left=637,
+                top=775,
+                opacity=1,
+                animate_opacity=600,
+                
+        )
     
     Or = ft.Container(content=ft.ElevatedButton(content= 
                             ft.Text(
@@ -134,7 +143,35 @@ def main(page: ft.Page):
                         animate_opacity = 300
     )
 
-    truths = ft.Container(content=ft.Image(src="CardBAck.png", height= 330, width=230))
+    truths = ft.Container(content=
+                            ft.Image(
+                            src="CardBAck.png", 
+                            height= 330, 
+                            width=230
+                        ),
+                    height=330,
+                    width=230,
+                    border_radius=30,
+                    left= 152,
+                    top= 335,
+                    opacity=0,
+                    animate_opacity= 900
+                    
+                )
+    falses = ft.Container(content=
+                            ft.Image(
+                            src="CardBAck.png", 
+                            height= 330, 
+                            width=230
+                        ),
+                    height=330,
+                    width=230,
+                    border_radius=30,
+                    left= 1050,
+                    top= 335,
+                    opacity=0,
+                    animate_opacity= 900
+            )
 
     StackTitle = ft.Stack([ft.Image(src="truth.png", 
                                     height=850,
@@ -143,13 +180,17 @@ def main(page: ft.Page):
                                 ), 
                         green,
                         red,
-                        white
-                    ,
+                        white,
+
+                        truths,
+                        falses,   
                 
-                        Truth, 
+                        Truth,
+                        Advise, 
                         Or, 
-                        Dare
-                            
+                        Dare,
+                        
+
                             ], 
                             
                     )
