@@ -1,5 +1,6 @@
 import flet as ft
 import asyncio
+import random as r 
 def main(page: ft.Page):
 
     page.title= "Truth or Dare"
@@ -47,7 +48,6 @@ def main(page: ft.Page):
         red.opacity = 0.4
         page.update()
         
-
     #Main Title
     Truth = ft.Container(content=ft.Text(value = "TRUTH", 
                     font_family="TODF", 
@@ -56,21 +56,20 @@ def main(page: ft.Page):
                     
                 ),left=400,
                     top=175,
-                 animate_position=850,
-                 animate_scale=ft.animation.Animation(600),
-                 animate_opacity= 100
-
+                animate_position=850,
+                animate_scale=ft.animation.Animation(600),
+                animate_opacity= 100
                 )
-
+    
     Dare = ft.Container(content=ft.Text(value = "DARE", 
                 font_family="TODF", 
                 size = 200, 
                 color = "#ff3131"
                 ),left=450,
                     top=400,
-                 animate_position=850,
-                 animate_scale=ft.animation.Animation(600),
-                 animate_opacity= 100
+                animate_position=850,
+                animate_scale=ft.animation.Animation(600),
+                animate_opacity= 100
                 )
 
     Advise= ft.Text(value = "Press the title to begin", 
@@ -126,8 +125,9 @@ def main(page: ft.Page):
                         top= 260,
                         opacity=0,
                         animate_opacity = 300
-
     )
+
+    truths = ft.Container(content=ft.Image(src="CardBAck.png", height= 330, width=230))
 
     StackTitle = ft.Stack([ft.Image(src="truth.png", 
                                     height=850,
@@ -153,6 +153,6 @@ def main(page: ft.Page):
     MainRow = ft.Row(controls=[ContainerTitle])
     page.add(MainRow)
     
-        
+    
 
 ft.app(target= main, assets_dir= "assets")
