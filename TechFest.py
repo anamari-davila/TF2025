@@ -17,28 +17,40 @@ def main(page: ft.Page):
     page.window.bgcolor = ft.Colors.BLACK
 
     def ShowGame(e):
-        if ContainerTitle.visible == True:
-            Truth.visible=False
-            Dare.visible=False
-            Advise.visible=False
-            Or.visible=False
-        else:
-            pass
+        Truth.top= 100
+        Truth.left= 200
+        Or.top= 200
+        Or.left=660
+        Dare.top = 100
+        Dare.left = 700
+        Truth.scale = 0.38
+        Dare.scale = 0.38
+        Or.scale = 0.62
+        
+        
         page.update()
 
     #Main Title
     Truth = ft.Container(content=ft.Text(value = "TRUTH", 
                     font_family="TODF", 
                     size = 200, 
-                    color= "#00bf63"
-                )
+                    color= "#00bf63",
+                    
+                ),left=420,
+                    top=175,
+                 animate_position=700,
+                 animate_scale=ft.animation.Animation(600)
+
                 )
 
     Dare = ft.Container(content=ft.Text(value = "DARE", 
                 font_family="TODF", 
                 size = 200, 
                 color = "#ff3131"
-                )
+                ),left=450,
+                    top=400,
+                 animate_position=700,
+                 animate_scale=ft.animation.Animation(600)
                 )
 
     Advise= ft.Text(value = "Press the title to begin", 
@@ -48,7 +60,7 @@ def main(page: ft.Page):
                     visible=True,
                     
                 )
-    ornamentacionvacia=ft.Container(content=ft.Text(""))
+    
     Or = ft.Container(content=ft.ElevatedButton(content= 
                             ft.Text(
                                 value = "OR", 
@@ -58,26 +70,24 @@ def main(page: ft.Page):
                             ),
                                 bgcolor=ft.Colors.WHITE, 
                                 on_click=None
-                        ),shape=ft.CircleBorder()
+                        ),shape=ft.CircleBorder(), 
+                        left=660,
+                        top=375,
+                        animate_position=700,
+                        animate_scale=ft.animation.Animation(600)
                     )
     
     StackTitle = ft.Stack([ft.Image(src="truth.png", 
                                     height=850,
                                     width=1480
+                                    
                                 ), 
-                        
-                        ft.Column([Truth, Or, Dare], 
-                                    spacing=-95,
-                                    alignment=ft.MainAxisAlignment.CENTER, 
-                                    horizontal_alignment=ft.CrossAxisAlignment.CENTER,), 
-
-                            ft.Column([ornamentacionvacia,ornamentacionvacia,ornamentacionvacia,Advise],
-                                    spacing=225,  
-                                    alignment=ft.MainAxisAlignment.CENTER, 
-                                    horizontal_alignment=ft.CrossAxisAlignment.CENTER)
+                        Truth, 
+                        Or, 
+                        Dare
                             
                             ], 
-                            alignment=ft.alignment.center
+                            
                     )
     ContainerTitle = ft.Container(content=StackTitle, on_click=ShowGame)
     
