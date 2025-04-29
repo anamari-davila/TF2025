@@ -47,11 +47,13 @@ def main(page: ft.Page):
         green.opacity = 0.4 
         red.opacity = 0.4
         page.update()
+
         await asyncio.sleep(2)
         manidecoco()
 
         def manidecoco(e):
             ContainerTitle.on_click=None
+
         
     #Main Title
     Truth = ft.Container(content=ft.Text(value = "TRUTH", 
