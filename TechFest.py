@@ -58,6 +58,8 @@ def main(page: ft.Page):
 
         def manidecoco(e):
             ContainerTitle.on_click=None
+            truths.on_click=None
+            falses.on_click=None
 
         
     #Main Title
