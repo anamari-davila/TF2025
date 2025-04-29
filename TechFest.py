@@ -17,7 +17,7 @@ def main(page: ft.Page):
     page.window.height = 900
     page.window.bgcolor = ft.Colors.BLACK
 
-    
+    #Intro Animations
     async def ShowGame(e):
         Truth.top= 100
         Truth.left= -40
@@ -61,6 +61,8 @@ def main(page: ft.Page):
 
         
     #Main Title
+
+    #Text: Truth
     Truth = ft.Container(content=ft.Text(value = "TRUTH", 
                     font_family="TODF", 
                     size = 200, 
@@ -73,6 +75,7 @@ def main(page: ft.Page):
                 animate_opacity= 100
                 )
     
+    #Text: Dare
     Dare = ft.Container(content=ft.Text(value = "DARE", 
                 font_family="TODF", 
                 size = 200, 
@@ -84,6 +87,7 @@ def main(page: ft.Page):
                 animate_opacity= 100
                 )
 
+    #Advise for the User
     Advise= ft.Container(content=ft.Text(value = "Press the title to begin", 
                         font_family="TODF", 
                         size = 14, 
@@ -96,6 +100,7 @@ def main(page: ft.Page):
                 
         )
     
+    #Text: Or
     Or = ft.Container(content=ft.ElevatedButton(content= 
                             ft.Text(
                                 value = "OR", 
@@ -112,6 +117,7 @@ def main(page: ft.Page):
                         animate_scale=ft.animation.Animation(600)
 
                     )
+    #Green Frame
     green= ft.Container(
                         width=280,
                         height=380,
@@ -122,6 +128,8 @@ def main(page: ft.Page):
                         opacity=0,
                         animate_opacity = 300
     )
+
+    #Red Frame
     red= ft.Container(
                         width=280,
                         height=380,
@@ -132,6 +140,8 @@ def main(page: ft.Page):
                         opacity=0,
                         animate_opacity = 300
     )
+
+    #White Frame
     white = ft.Container(
                         width=425,
                         height=460,
@@ -143,6 +153,7 @@ def main(page: ft.Page):
                         animate_opacity = 300
     )
 
+    #Card back for truth
     truths = ft.Container(content=
                             ft.Image(
                             src="CardBAck.png", 
@@ -158,6 +169,8 @@ def main(page: ft.Page):
                     animate_opacity= 900
                     
                 )
+    
+    #Card back for dares
     falses = ft.Container(content=
                             ft.Image(
                             src="CardBAck.png", 
@@ -173,6 +186,7 @@ def main(page: ft.Page):
                     animate_opacity= 900
             )
 
+    #The Stacks, all the elements
     StackTitle = ft.Stack([ft.Image(src="truth.png", 
                                     height=850,
                                     width=1480
@@ -199,6 +213,8 @@ def main(page: ft.Page):
 
     #Rows & Columns
     MainRow = ft.Row(controls=[ContainerTitle])
+
+    #Page add
     page.add(MainRow)
     
     
