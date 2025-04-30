@@ -32,36 +32,37 @@ def main(page: ft.Page):
         Dare.update()
 
         #Put the Card on the center
-        truths.animate_position= 750
+        truths.animate_position= 375
         truths.update()
         Or.opacity = 0
         Or.update()
-        await asyncio.sleep(1)
+        await asyncio.sleep(0.5)
 
-        Truth.animate_opacity=500
+        Truth.animate_opacity=250
         Truth.update()
         Truth.opacity = 0
         Truth.update()
-        await asyncio.sleep(1)
+        await asyncio.sleep(0.5)
+        
         Truth.animate_position= 0
         Truth.top = 50
         Truth.left= 405
         Truth.update()
         
-        Truth.animate_opacity=1000
+        Truth.animate_opacity=500
         Truth.opacity = 1
 
         page.update()
 
         await asyncio.sleep(1)
-        white.animate_opacity= 1000
+        white.animate_opacity= 500
         page.update()
         white.opacity = 0
         white.update()
-        await asyncio.sleep(1)
+        await asyncio.sleep(0.5)
         truths.opacity = 0
         truths.update()
-        await asyncio.sleep(1)
+        await asyncio.sleep(0.5)
         truths.top = 326
         truths.left = 602
         truths.scale = 1.34
