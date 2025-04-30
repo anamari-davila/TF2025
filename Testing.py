@@ -43,6 +43,7 @@ def main(page: ft.Page):
         Truth.opacity = 0
         Truth.update()
         await asyncio.sleep(0.5)
+        
         Truth.animate_position= 0
         Truth.top = 50
         Truth.left= 405
