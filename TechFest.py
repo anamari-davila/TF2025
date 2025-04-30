@@ -17,6 +17,43 @@ def main(page: ft.Page):
     page.window.height = 900
     page.window.bgcolor = ft.Colors.BLACK
 
+#Truth Card
+
+    async def truthcard(e):
+        
+        #Erases Dare side
+        falses.opacity = 0
+        falses.update()
+        await asyncio.sleep(0.5)
+        red.opacity = 0
+        red.update()
+        await asyncio.sleep(0.3)
+        Dare.opacity = 0
+        Dare.update()
+
+        #Put the Card on the center
+        truths.animate_position= 500
+        truths.update()
+        truths.top = 335
+        truths.left = 500
+        
+        truths.update()
+        await asyncio.sleep(1)
+        green.opacity = 0
+        green.update()
+        await asyncio.sleep(0.5)
+        Truth.opacity = 0
+        Truth.update()
+        await asyncio.sleep(0.5)
+
+
+
+
+        #Dare Card
+
+    def darecard(e):
+        pass
+
     #Intro Animations
     async def ShowGame(e):
         Truth.top= 100
@@ -30,36 +67,36 @@ def main(page: ft.Page):
         Or.scale = 0.75
         Advise.opacity= 0
         page.update()
-        casabella=0
-        while True:
-            casabella+=1
-            Truth.opacity = 0
-            Dare.opacity = 0
-            page.update()
-            Truth.opacity =1
-            Dare.opacity = 1
-            page.update()
-            if casabella == 10:
-                break
-        await asyncio.sleep(1.5)
+        await asyncio.sleep(0.5)
         white.opacity= 0.4
         page.update()
-        await asyncio.sleep(1)
+        await asyncio.sleep(0.5)
         green.opacity = 0.4 
         red.opacity = 0.4
         page.update()
-        await asyncio.sleep(1)
+        await asyncio.sleep(0.5)
         truths.opacity = 1
         falses.opacity = 1
+        
+        page.update()
+        await asyncio.sleep(2)
+        ContainerTitle.on_click=None
+
+        #Fast animations setting, and clickable cards
+
+        truths.animate_opacity=200
+        falses.animate_opacity=200
+        Dare.animate_opacity=200
+        Truth.animate_opacity=200
+        green.animate_opacity=200
+        red.animate_opacity=200
+        truths.on_click=truthcard
+        falses.on_click=darecard
+
         page.update()
 
-        await asyncio.sleep(2)
-        manidecoco()
-
-        def manidecoco(e):
-            ContainerTitle.on_click=None
-
         
+
     #Main Title
 
     #Text: Truth
@@ -72,7 +109,7 @@ def main(page: ft.Page):
                     top=175,
                 animate_position=850,
                 animate_scale=ft.animation.Animation(600),
-                animate_opacity= 100
+                animate_opacity= 600
                 )
     
     #Text: Dare
@@ -84,7 +121,7 @@ def main(page: ft.Page):
                     top=400,
                 animate_position=850,
                 animate_scale=ft.animation.Animation(600),
-                animate_opacity= 100
+                animate_opacity= 400
                 )
 
     #Advise for the User
@@ -96,7 +133,7 @@ def main(page: ft.Page):
                 left=637,
                 top=775,
                 opacity=1,
-                animate_opacity=600,
+                animate_opacity=400,
                 
         )
     
@@ -109,7 +146,7 @@ def main(page: ft.Page):
                                 size =75
                             ),
                                 bgcolor=ft.Colors.WHITE, 
-                                on_click=None
+                                
                         ),shape=ft.CircleBorder(), 
                         left=660,
                         top=375,
@@ -166,7 +203,9 @@ def main(page: ft.Page):
                     left= 152,
                     top= 335,
                     opacity=0,
-                    animate_opacity= 900
+                    animate_opacity= 900,
+                    animate_position= 950,
+                    on_click=None
                     
                 )
     
@@ -183,7 +222,9 @@ def main(page: ft.Page):
                     left= 1050,
                     top= 335,
                     opacity=0,
-                    animate_opacity= 900
+                    animate_opacity= 900,
+                    animate_position= 950,
+                on_click=None
             )
 
     #The Stacks, all the elements
