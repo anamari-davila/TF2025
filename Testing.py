@@ -90,6 +90,20 @@ def main(page: ft.Page):
         page.update()
         white.opacity = 0.4
         
+        
+        white.update()
+        await asyncio.sleep(0.8)
+        l=0
+        while l != 5:
+            l+=1
+            white.opacity=0.1
+            white.update()
+            await asyncio.sleep(0.8)
+            white.opacity= 0.4
+            white.update()
+            await asyncio.sleep(0.8)
+
+        
         white.update()
         await asyncio.sleep(1.5)
 
@@ -174,6 +188,19 @@ def main(page: ft.Page):
         white.opacity = 0.4
         
         white.update()
+
+        white.update()
+        await asyncio.sleep(0.8)
+        l=0
+        while l != 5:
+            l+=1
+            white.opacity=0.1
+            white.update()
+            await asyncio.sleep(0.8)
+            white.opacity= 0.4
+            white.update()
+            await asyncio.sleep(0.8)
+
         await asyncio.sleep(1.5)
 
     #Intro Animations
