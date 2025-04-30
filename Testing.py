@@ -21,6 +21,9 @@ def main(page: ft.Page):
 
     async def truthcard(e):
         
+        truths.on_click=None
+        falses.on_click=None
+
         #Erases Dare side
         falses.opacity = 0
         falses.update()
@@ -82,8 +85,9 @@ def main(page: ft.Page):
         white.width=308
         white.left=563
         white.update()
+        white.bgcolor = "#00bf63"
         await asyncio.sleep(1.5)
-
+        page.update()
         white.opacity = 0.4
         
         white.update()
@@ -98,8 +102,79 @@ def main(page: ft.Page):
 
         #Dare Card
 
-    def darecard(e):
-        pass
+    async def darecard(e):
+
+        truths.on_click=None
+        falses.on_click=None
+
+        #Erases Dare side
+        truths.opacity = 0
+        truths.update()
+        await asyncio.sleep(0.5)
+        green.opacity = 0
+        green.update()
+        await asyncio.sleep(0.3)
+        Truth.opacity = 0
+        Truth.update()
+
+        #Put the Card on the center
+        falses.animate_position= 375
+        falses.update()
+        Or.opacity = 0
+        Or.update()
+        await asyncio.sleep(0.5)
+
+        Dare.animate_opacity=250
+        Dare.update()
+        Dare.opacity = 0
+        Dare.update()
+        await asyncio.sleep(0.5)
+        
+        Dare.animate_position= 0
+        Dare.top = 50
+        Dare.left= 463
+        Dare.update()
+        
+        Dare.animate_opacity=500
+        Dare.opacity = 1
+
+        page.update()
+
+        await asyncio.sleep(1)
+        white.animate_opacity= 500
+        page.update()
+        white.opacity = 0
+        white.update()
+        await asyncio.sleep(0.5)
+        falses.opacity = 0
+        falses.update()
+        await asyncio.sleep(0.5)
+        falses.top = 326
+        falses.left = 602
+        falses.scale = 1.34
+        page.update()
+
+        red.animate_opacity = 500
+        red.opacity = 0
+        red.update()
+        await asyncio.sleep(0.5)
+        falses.animate_opacity=1000
+        falses.opacity = 1
+        
+        
+        page.update()
+
+        
+        white.width=308
+        white.left=563
+        white.bgcolor = "#ff3131"
+        white.update()
+        await asyncio.sleep(1.5)
+
+        white.opacity = 0.4
+        
+        white.update()
+        await asyncio.sleep(1.5)
 
     #Intro Animations
     async def ShowGame(e):
