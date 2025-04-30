@@ -17,6 +17,26 @@ def main(page: ft.Page):
     page.window.height = 900
     page.window.bgcolor = ft.Colors.BLACK
 
+#Truth Card
+
+    async def truthcard(e):
+        falses.opacity = 0
+        falses.update()
+        await asyncio.sleep(1)
+        red.opacity = 0
+        red.update()
+        await asyncio.sleep(0.5)
+        Dare.opacity = 0
+        Dare.update()
+        await asyncio.sleep(1)
+
+
+
+        #Dare Card
+
+    def darecard(e):
+        pass
+
     #Intro Animations
     async def ShowGame(e):
         Truth.top= 100
@@ -30,17 +50,6 @@ def main(page: ft.Page):
         Or.scale = 0.75
         Advise.opacity= 0
         page.update()
-        casabella=0
-        while True:
-            casabella+=1
-            Truth.opacity = 0
-            Dare.opacity = 0
-            page.update()
-            Truth.opacity =1
-            Dare.opacity = 1
-            page.update()
-            if casabella == 10:
-                break
         await asyncio.sleep(1.5)
         white.opacity= 0.4
         page.update()
@@ -51,17 +60,16 @@ def main(page: ft.Page):
         await asyncio.sleep(1)
         truths.opacity = 1
         falses.opacity = 1
+        
+        page.update()
+        await asyncio.sleep(1.5)
+        ContainerTitle.on_click=None
+        truths.on_click=truthcard
+        falses.on_click=darecard
         page.update()
 
-        await asyncio.sleep(2)
-        manidecoco()
-
-        def manidecoco(e):
-            ContainerTitle.on_click=None
-            truths.on_click=None
-            falses.on_click=None
-
         
+
     #Main Title
 
     #Text: Truth
@@ -74,7 +82,7 @@ def main(page: ft.Page):
                     top=175,
                 animate_position=850,
                 animate_scale=ft.animation.Animation(600),
-                animate_opacity= 100
+                animate_opacity= 600
                 )
     
     #Text: Dare
@@ -86,7 +94,7 @@ def main(page: ft.Page):
                     top=400,
                 animate_position=850,
                 animate_scale=ft.animation.Animation(600),
-                animate_opacity= 100
+                animate_opacity= 400
                 )
 
     #Advise for the User
@@ -98,7 +106,7 @@ def main(page: ft.Page):
                 left=637,
                 top=775,
                 opacity=1,
-                animate_opacity=600,
+                animate_opacity=400,
                 
         )
     
