@@ -18,9 +18,7 @@ def main(page: ft.Page):
     page.window.bgcolor = ft.Colors.BLACK
 
 #Truth Card
-
     async def truthcard(e):
-        
         #Erases Dare side
         falses.opacity = 0
         falses.update()
@@ -35,7 +33,7 @@ def main(page: ft.Page):
         truths.animate_position= 500
         truths.update()
         truths.top = 335
-        truths.left = 500
+        truths.left = 600
         
         truths.update()
         await asyncio.sleep(1)
@@ -46,14 +44,32 @@ def main(page: ft.Page):
         Truth.update()
         await asyncio.sleep(0.5)
 
+#Dare Card
+    async def darecard(e):
+        #Erases Truth side
+        truths.opacity = 0
+        truths.update()
+        await asyncio.sleep(0.5)
+        green.opacity = 0
+        green.update()
+        await asyncio.sleep(0.3)
+        Truth.opacity = 0
+        Truth.update()
 
-
-
-        #Dare Card
-
-    def darecard(e):
-        pass
-
+        #Put the Card on the center
+        falses.animate_position= 500
+        falses.update()
+        falses.top = 335
+        falses.left = 600
+        
+        falses.update()
+        await asyncio.sleep(1)
+        red.opacity = 0
+        red.update()
+        await asyncio.sleep(0.5)
+        Dare.opacity = 0
+        Dare.update()
+        await asyncio.sleep(0.5)
     #Intro Animations
     async def ShowGame(e):
         Truth.top= 100
@@ -224,7 +240,7 @@ def main(page: ft.Page):
                     opacity=0,
                     animate_opacity= 900,
                     animate_position= 950,
-                on_click=None
+                on_click=rolldares
             )
 
     #The Stacks, all the elements
