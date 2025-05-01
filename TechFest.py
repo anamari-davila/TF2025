@@ -17,6 +17,36 @@ def main(page: ft.Page):
     page.window.height = 900
     page.window.bgcolor = ft.Colors.BLACK
 
+#Roll Dares
+    listdares = [
+    "animations/dare/28.mp4",
+    "animations/dare/30.mp4",
+    "animations/dare/32.mp4",
+    "animations/dare/34.mp4",
+    "animations/dare/36.mp4",
+    "animations/dare/38.mp4",
+    "animations/dare/40.mp4",
+    "animations/dare/42.mp4",
+    "animations/dare/44.mp4"
+]
+
+    listtruths = [
+    "animations/truth/2.mp4", "animations/truth/4.mp4", "animations/truth/6.mp4", "animations/truth/8.mp4", "animations/truth/10.mp4","animations/truth/12.mp4","animations/truth/14.mp4",
+    "animations/truth/16.mp4","animations/truth/18.mp4","animations/truth/20.mp4","animations/truth/22.mp4","animations/truth/24.mp4","animations/truth/26.mp4"
+]
+
+    async def rolldares(e):
+        x = r.randint(0,8)
+        rolleddare = listdares[x]
+        await asyncio.sleep(2)
+        falses.content = ft.Video(ft.VideoMedia(resource=f"{rolleddare}"))
+    
+    async def rolltruths(e):
+        x = r.randint(0,12)
+        rolledtruth = listtruths[x]
+        await asyncio.sleep(2)
+        truths.content = ft.Video(ft.VideoMedia(resource=f"{rolledtruth}"))
+
 #Truth Card
 
     async def truthcard(e):
@@ -106,6 +136,7 @@ def main(page: ft.Page):
         
         white.update()
         await asyncio.sleep(1.5)
+        truths.on_click = rolltruths
 
 
         #Dare Card
@@ -271,29 +302,6 @@ def main(page: ft.Page):
                 animate_opacity= 400
                 )
 
-#Roll Dares
-    listdares = [
-    "animations/dare/28.mp4",
-    "animations/dare/30.mp4",
-    "animations/dare/32.mp4",
-    "animations/dare/34.mp4",
-    "animations/dare/36.mp4",
-    "animations/dare/38.mp4",
-    "animations/dare/40.mp4",
-    "animations/dare/42.mp4",
-    "animations/dare/44.mp4"
-]
-
-    listtruths = [
-    "animations/truth/2.mp4", "animations/truth/4.mp4", "animations/truth/6.mp4", "animations/truth/8.mp4", "animations/truth/10.mp4","animations/truth/12.mp4","animations/truth/14.mp4",
-    "animations/truth/16.mp4","animations/truth/18.mp4","animations/truth/20.mp4","animations/truth/22.mp4","animations/truth/24.mp4","animations/truth/26.mp4"
-]
-
-    async def rolldares(e):
-        x = r.randint(0,8)
-        rolleddare = listdares[x]
-        await asyncio.sleep(2)
-        falses.content = ft.Video(ft.VideoMedia(resource=f"{rolleddare}"))
         
     #Advise for the User
     Advise= ft.Container(content=ft.Text(value = "Press the title to begin", 
@@ -397,7 +405,7 @@ def main(page: ft.Page):
                     opacity=0,
                     animate_opacity= 900,
                     animate_position= 950,
-                on_click=rolldares
+                on_click=None
             )
 
     #The Stacks, all the elements
