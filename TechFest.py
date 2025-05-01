@@ -18,7 +18,6 @@ def main(page: ft.Page):
     page.window.bgcolor = ft.Colors.BLACK
 
 #Truth Card
-
     async def truthcard(e):
         
         #Erases Dare side
@@ -35,7 +34,7 @@ def main(page: ft.Page):
         truths.animate_position= 500
         truths.update()
         truths.top = 335
-        truths.left = 500
+        truths.left = 600
         
         truths.update()
         await asyncio.sleep(1)
@@ -46,13 +45,36 @@ def main(page: ft.Page):
         Truth.update()
         await asyncio.sleep(0.5)
 
+#Dare Card
+    async def darecard(e):
+        #Erases Truth side
+        truths.opacity = 0
+        truths.update()
+        await asyncio.sleep(0.5)
+        green.opacity = 0
+        green.update()
+        await asyncio.sleep(0.3)
+        Truth.opacity = 0
+        Truth.update()
 
+        #Put the Card on the center
+        falses.animate_position= 500
+        falses.update()
+        falses.top = 335
+        falses.left = 600
+        
+        falses.update()
+        await asyncio.sleep(1)
+        red.opacity = 0
+        red.update()
+        await asyncio.sleep(0.5)
+        Dare.opacity = 0
+        Dare.update()
+        await asyncio.sleep(0.5)
 
-
-        #Dare Card
-
-    def darecard(e):
-        pass
+#Roll Dares
+    listdares = ["28.mp4", "30.mp4","32.mp4","34.mp4","36.mp4","38.mp4","40.mp4","42.mp4","44.mp4"]
+    async def rolldares(e):
 
     #Intro Animations
     async def ShowGame(e):
