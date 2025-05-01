@@ -46,21 +46,83 @@ def main(page: ft.Page):
     r"C:\Users\foxyg\OneDrive\Desktop\Python\Tech fest\Branched\TF2025\assets\animations\truth\24.mp4",
     r"C:\Users\foxyg\OneDrive\Desktop\Python\Tech fest\Branched\TF2025\assets\animations\truth\26.mp4"
 ]
+    async def restart(e):
+        green.opacity = 0.5
+        green.update()
 
+        await asyncio.sleep(0.5)
+        red.opacity = 0.5
+        red.update()
+
+        await asyncio.sleep(0.5)
+        white.top = 260
+        white.left = 505
+        white.opacity = 0.5
+        white.width = 425
+        white.height = 460
+        white.bgcolor = ft.Colors.WHITE
+        white.update()
+
+        await asyncio.sleep(0.5)
+        truths.height = 330
+        truths.height =230
+        truths.top = 335
+        truths.left = 152
+        truths.content = ft.Image(src="CArdback.png", height=330, width=230)
+        truths.opacity = 1
+        truths.update()
+
+        await asyncio.sleep(0.5)
+        falses.height = 330
+        falses.height =230
+        falses.top = 335
+        falses.left = 1050
+        falses.content = ft.Image(src="CArdback.png",height=330, width=230)
+        falses.opacity = 1
+        falses.update()
+
+        await asyncio.sleep(0.5)
+        Truth.top = 100
+        Truth.left = 10
+        Truth.opacity = 1
+        Truth.animate_opacity = 300
+
+        await asyncio.sleep(0.5)
+        Dare.top = 100
+        Dare.left = 910
+        Dare.opacity = 1
+        Dare.animate_opacity = 300s
+
+        await asyncio.sleep(0.5) 
+        Or.top = 110
+        Or.left = 660
+        Or.opacity = 1
+        Or.animate_opacity = 300
+
+        await asyncio.sleep(0.5)
+        Advise.opacity = 0
+        truths.on_click = None
+        falses.on_click = None
+        page.update()
 
     async def rolldares(e):
         x = r.randint(0,8)
         rolleddare = listdares[x]
         await asyncio.sleep(2)
-        print(rolldares)
         falses.content = ft.Video(
             playlist=ft.VideoMedia(resource=rolleddare),
             height=330,
             width=230,
             autoplay=True,
-            show_controls=False
-)
-
+            show_controls=False)
+        Advise.content = ft.Text(value = "Click Here to Restart", 
+                        font_family="TODF", 
+                        size = 14, 
+                        color =ft.Colors.WHITE,
+                    )
+        Advise.opacity = 1
+        Advise.on_click = restart
+        Advise.visible = True
         page.update()
     
     async def rolltruths(e):
@@ -72,14 +134,18 @@ def main(page: ft.Page):
             height=330,
             width=230,
             autoplay=True,
-            show_controls=False
-        )
+            show_controls=False)
+        Advise.content = ft.Text(value = "Click Here to Restart", 
+                        font_family="TODF", 
+                        size = 14, 
+                        color =ft.Colors.WHITE)
+        Advise.opacity = 1
+        Advise.on_click = restart
+        Advise.visible = True
         page.update()
 
 #Truth Card
-
     async def truthcard(e):
-        
         truths.on_click=None
         falses.on_click=None
 
@@ -137,7 +203,6 @@ def main(page: ft.Page):
         truths.animate_opacity=1000
         truths.opacity = 1
         
-        
         page.update()
 
         
@@ -153,14 +218,14 @@ def main(page: ft.Page):
         white.update()
         await asyncio.sleep(0.8)
         l=0
-        while l != 5:
+        while l != 3:
             l+=1
             white.opacity=0.1
             white.update()
-            await asyncio.sleep(0.8)
+            await asyncio.sleep(0.5)
             white.opacity= 0.4
             white.update()
-            await asyncio.sleep(0.8)
+            await asyncio.sleep(0.5)
 
         
         white.update()
@@ -229,9 +294,7 @@ def main(page: ft.Page):
         falses.animate_opacity=1000
         falses.opacity = 1
         
-        
         page.update()
-
         
         white.width=308
         white.left=563
@@ -246,14 +309,14 @@ def main(page: ft.Page):
         white.update()
         await asyncio.sleep(0.8)
         l=0
-        while l != 5:
+        while l != 3:
             l+=1
             white.opacity=0.1
             white.update()
-            await asyncio.sleep(0.8)
+            await asyncio.sleep(0.5)
             white.opacity= 0.4
             white.update()
-            await asyncio.sleep(0.8)
+            await asyncio.sleep(0.5)
 
         falses.on_click = rolldares
         falses.update()
@@ -461,25 +524,7 @@ def main(page: ft.Page):
                             ], 
                             
                     )
-    RestartButton = ft.Container(ft.Image(src="Restart.png"), on_click=restart)
     ContainerTitle = ft.Container(content=StackTitle, on_click=ShowGame)
-    
-    async def restart(e):
-        green.top = 310
-        green.left = 127
-        green.opacity = 300
-        await asyncio.sleep(2)
-        red.top = 310
-        red.left = 1025
-        red.opacity = 300
-        await asyncio.sleep(2)
-        white.top = 260
-        white.left = 505
-        white.opacity = 300
-        await asyncio.sleep(2)
-        truths.top = 335
-        truths.left = 152
-        truths.opacity = 300
 
 
     #Rows & Columns
