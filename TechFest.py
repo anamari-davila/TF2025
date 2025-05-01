@@ -19,7 +19,6 @@ def main(page: ft.Page):
 
 #Truth Card
     async def truthcard(e):
-        
         #Erases Dare side
         falses.opacity = 0
         falses.update()
@@ -71,11 +70,6 @@ def main(page: ft.Page):
         Dare.opacity = 0
         Dare.update()
         await asyncio.sleep(0.5)
-
-#Roll Dares
-    listdares = ["28.mp4", "30.mp4","32.mp4","34.mp4","36.mp4","38.mp4","40.mp4","42.mp4","44.mp4"]
-    async def rolldares(e):
-
     #Intro Animations
     async def ShowGame(e):
         Truth.top= 100
@@ -246,7 +240,7 @@ def main(page: ft.Page):
                     opacity=0,
                     animate_opacity= 900,
                     animate_position= 950,
-                on_click=None
+                on_click=rolldares
             )
 
     #The Stacks, all the elements
