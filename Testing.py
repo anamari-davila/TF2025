@@ -107,12 +107,6 @@ def main(page: ft.Page):
         white.update()
         await asyncio.sleep(1.5)
 
-        
-        
-        
-        
-
-
 
         #Dare Card
 
