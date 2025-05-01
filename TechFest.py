@@ -18,7 +18,12 @@ def main(page: ft.Page):
     page.window.bgcolor = ft.Colors.BLACK
 
 #Truth Card
+
     async def truthcard(e):
+        
+        truths.on_click=None
+        falses.on_click=None
+
         #Erases Dare side
         falses.opacity = 0
         falses.update()
@@ -30,23 +35,87 @@ def main(page: ft.Page):
         Dare.update()
 
         #Put the Card on the center
-        truths.animate_position= 500
+        truths.animate_position= 375
         truths.update()
-        truths.top = 335
-        truths.left = 600
-        
-        truths.update()
-        await asyncio.sleep(1)
-        green.opacity = 0
-        green.update()
+        Or.opacity = 0
+        Or.update()
         await asyncio.sleep(0.5)
+
+        Truth.animate_opacity=250
+        Truth.update()
         Truth.opacity = 0
         Truth.update()
         await asyncio.sleep(0.5)
+        
+        Truth.animate_position= 0
+        Truth.top = 50
+        Truth.left= 405
+        Truth.update()
+        
+        Truth.animate_opacity=500
+        Truth.opacity = 1
 
-#Dare Card
+        page.update()
+
+        await asyncio.sleep(1)
+        white.animate_opacity= 500
+        page.update()
+        white.opacity = 0
+        white.update()
+        await asyncio.sleep(0.5)
+        truths.opacity = 0
+        truths.update()
+        await asyncio.sleep(0.5)
+        truths.top = 326
+        truths.left = 602
+        truths.scale = 1.34
+        page.update()
+
+        green.animate_opacity = 500
+        green.opacity = 0
+        green.update()
+        await asyncio.sleep(0.5)
+        truths.animate_opacity=1000
+        truths.opacity = 1
+        
+        
+        page.update()
+
+        
+        white.width=308
+        white.left=563
+        white.update()
+        white.bgcolor = "#00bf63"
+        await asyncio.sleep(1.5)
+        page.update()
+        white.opacity = 0.4
+        
+        
+        white.update()
+        await asyncio.sleep(0.8)
+        l=0
+        while l != 5:
+            l+=1
+            white.opacity=0.1
+            white.update()
+            await asyncio.sleep(0.8)
+            white.opacity= 0.4
+            white.update()
+            await asyncio.sleep(0.8)
+
+        
+        white.update()
+        await asyncio.sleep(1.5)
+
+
+        #Dare Card
+
     async def darecard(e):
-        #Erases Truth side
+
+        truths.on_click=None
+        falses.on_click=None
+
+        #Erases Dare side
         truths.opacity = 0
         truths.update()
         await asyncio.sleep(0.5)
@@ -57,19 +126,77 @@ def main(page: ft.Page):
         Truth.update()
 
         #Put the Card on the center
-        falses.animate_position= 500
+        falses.animate_position= 375
         falses.update()
-        falses.top = 335
-        falses.left = 600
-        
-        falses.update()
-        await asyncio.sleep(1)
-        red.opacity = 0
-        red.update()
+        Or.opacity = 0
+        Or.update()
         await asyncio.sleep(0.5)
+
+        Dare.animate_opacity=250
+        Dare.update()
         Dare.opacity = 0
         Dare.update()
         await asyncio.sleep(0.5)
+        
+        Dare.animate_position= 0
+        Dare.top = 50
+        Dare.left= 463
+        Dare.update()
+        
+        Dare.animate_opacity=500
+        Dare.opacity = 1
+
+        page.update()
+
+        await asyncio.sleep(1)
+        white.animate_opacity= 500
+        page.update()
+        white.opacity = 0
+        white.update()
+        await asyncio.sleep(0.5)
+        falses.opacity = 0
+        falses.update()
+        await asyncio.sleep(0.5)
+        falses.top = 326
+        falses.left = 602
+        falses.scale = 1.34
+        page.update()
+
+        red.animate_opacity = 500
+        red.opacity = 0
+        red.update()
+        await asyncio.sleep(0.5)
+        falses.animate_opacity=1000
+        falses.opacity = 1
+        
+        
+        page.update()
+
+        
+        white.width=308
+        white.left=563
+        white.bgcolor = "#ff3131"
+        white.update()
+        await asyncio.sleep(1.5)
+
+        white.opacity = 0.4
+        
+        white.update()
+
+        white.update()
+        await asyncio.sleep(0.8)
+        l=0
+        while l != 5:
+            l+=1
+            white.opacity=0.1
+            white.update()
+            await asyncio.sleep(0.8)
+            white.opacity= 0.4
+            white.update()
+            await asyncio.sleep(0.8)
+
+        await asyncio.sleep(1.5)
+
     #Intro Animations
     async def ShowGame(e):
         Truth.top= 100
@@ -95,8 +222,7 @@ def main(page: ft.Page):
         falses.opacity = 1
         
         page.update()
-        await asyncio.sleep(2)
-        ContainerTitle.on_click=None
+        
 
         #Fast animations setting, and clickable cards
 
@@ -109,6 +235,11 @@ def main(page: ft.Page):
         truths.on_click=truthcard
         falses.on_click=darecard
 
+        page.update()
+
+        await asyncio.sleep(2)
+        ContainerTitle.on_click=None
+        
         page.update()
 
         
@@ -140,6 +271,15 @@ def main(page: ft.Page):
                 animate_opacity= 400
                 )
 
+#Roll Dares
+    listdares = ["28.mp4","30.mp4","32.mp4","34.mp4","36.mp4","38.mp4","40.mp4","42.mp4","44.mp4"]
+    listtruths = ["2.mp4","4.mp4","6.mp4","8.mp4","10.mp4","12.mp4","14.mp4","16.mp4","18.mp4","20.mp4","22.mp4","24.mp4","26.mp4",]
+    async def rolldares(e):
+        x = r.randint(0,8)
+        rolleddare = listdares[x]
+        await asyncio.sleep(2)
+        falses.content = ft.Video(ft.VideoMedia(resource=f"{rolleddare}"))
+        
     #Advise for the User
     Advise= ft.Container(content=ft.Text(value = "Press the title to begin", 
                         font_family="TODF", 
@@ -167,6 +307,7 @@ def main(page: ft.Page):
                         left=660,
                         top=375,
                         animate_position=850,
+                        animate_opacity=500,
                         animate_scale=ft.animation.Animation(600)
 
                     )
@@ -204,6 +345,8 @@ def main(page: ft.Page):
                         top= 260,
                         opacity=0,
                         animate_opacity = 300
+                        
+                        
     )
 
     #Card back for truth
@@ -222,7 +365,6 @@ def main(page: ft.Page):
                     animate_opacity= 900,
                     animate_position= 950,
                     on_click=None
-                    
                 )
     
     #Card back for dares
@@ -240,7 +382,7 @@ def main(page: ft.Page):
                     opacity=0,
                     animate_opacity= 900,
                     animate_position= 950,
-                on_click=rolldares
+                on_click=None
             )
 
     #The Stacks, all the elements
