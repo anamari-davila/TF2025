@@ -17,6 +17,65 @@ def main(page: ft.Page):
     page.window.height = 900
     page.window.bgcolor = ft.Colors.BLACK
 
+#Roll Dares
+    listdares = [
+    r"C:\Users\foxyg\OneDrive\Desktop\Python\Tech fest\Branched\TF2025\assets\animations\dare\28.mp4",
+    r"C:\Users\foxyg\OneDrive\Desktop\Python\Tech fest\Branched\TF2025\assets\animations\dare\30.mp4",
+    r"C:\Users\foxyg\OneDrive\Desktop\Python\Tech fest\Branched\TF2025\assets\animations\dare\32.mp4",
+    r"C:\Users\foxyg\OneDrive\Desktop\Python\Tech fest\Branched\TF2025\assets\animations\dare\34.mp4",
+    r"C:\Users\foxyg\OneDrive\Desktop\Python\Tech fest\Branched\TF2025\assets\animations\dare\36.mp4",
+    r"C:\Users\foxyg\OneDrive\Desktop\Python\Tech fest\Branched\TF2025\assets\animations\dare\38.mp4",
+    r"C:\Users\foxyg\OneDrive\Desktop\Python\Tech fest\Branched\TF2025\assets\animations\dare\40.mp4",
+    r"C:\Users\foxyg\OneDrive\Desktop\Python\Tech fest\Branched\TF2025\assets\animations\dare\42.mp4",
+    r"C:\Users\foxyg\OneDrive\Desktop\Python\Tech fest\Branched\TF2025\assets\animations\dare\44.mp4"
+]
+
+
+    listtruths = [
+    r"C:\Users\foxyg\OneDrive\Desktop\Python\Tech fest\Branched\TF2025\assets\animations\truth\2.mp4",
+    r"C:\Users\foxyg\OneDrive\Desktop\Python\Tech fest\Branched\TF2025\assets\animations\truth\4.mp4",
+    r"C:\Users\foxyg\OneDrive\Desktop\Python\Tech fest\Branched\TF2025\assets\animations\truth\6.mp4",
+    r"C:\Users\foxyg\OneDrive\Desktop\Python\Tech fest\Branched\TF2025\assets\animations\truth\8.mp4",
+    r"C:\Users\foxyg\OneDrive\Desktop\Python\Tech fest\Branched\TF2025\assets\animations\truth\10.mp4",
+    r"C:\Users\foxyg\OneDrive\Desktop\Python\Tech fest\Branched\TF2025\assets\animations\truth\12.mp4",
+    r"C:\Users\foxyg\OneDrive\Desktop\Python\Tech fest\Branched\TF2025\assets\animations\truth\14.mp4",
+    r"C:\Users\foxyg\OneDrive\Desktop\Python\Tech fest\Branched\TF2025\assets\animations\truth\16.mp4",
+    r"C:\Users\foxyg\OneDrive\Desktop\Python\Tech fest\Branched\TF2025\assets\animations\truth\18.mp4",
+    r"C:\Users\foxyg\OneDrive\Desktop\Python\Tech fest\Branched\TF2025\assets\animations\truth\20.mp4",
+    r"C:\Users\foxyg\OneDrive\Desktop\Python\Tech fest\Branched\TF2025\assets\animations\truth\22.mp4",
+    r"C:\Users\foxyg\OneDrive\Desktop\Python\Tech fest\Branched\TF2025\assets\animations\truth\24.mp4",
+    r"C:\Users\foxyg\OneDrive\Desktop\Python\Tech fest\Branched\TF2025\assets\animations\truth\26.mp4"
+]
+
+
+    async def rolldares(e):
+        x = r.randint(0,8)
+        rolleddare = listdares[x]
+        await asyncio.sleep(2)
+        print(rolldares)
+        falses.content = ft.Video(
+            playlist=ft.VideoMedia(resource=rolleddare),
+            height=330,
+            width=230,
+            autoplay=True,
+            show_controls=False
+)
+
+        page.update()
+    
+    async def rolltruths(e):
+        x = r.randint(0,12)
+        rolledtruth = listtruths[x]
+        await asyncio.sleep(2)
+        truths.content = ft.Video(
+            playlist=ft.VideoMedia(resource=rolledtruth),
+            height=330,
+            width=230,
+            autoplay=True,
+            show_controls=False
+        )
+        page.update()
+
 #Truth Card
 
     async def truthcard(e):
@@ -106,7 +165,8 @@ def main(page: ft.Page):
         
         white.update()
         await asyncio.sleep(1.5)
-
+        truths.on_click = rolltruths
+        truths.update()
 
         #Dare Card
 
@@ -195,7 +255,9 @@ def main(page: ft.Page):
             white.update()
             await asyncio.sleep(0.8)
 
-        await asyncio.sleep(1.5)
+        falses.on_click = rolldares
+        falses.update()
+
 
     #Intro Animations
     async def ShowGame(e):
@@ -271,6 +333,7 @@ def main(page: ft.Page):
                 animate_opacity= 400
                 )
 
+        
     #Advise for the User
     Advise= ft.Container(content=ft.Text(value = "Press the title to begin", 
                         font_family="TODF", 
@@ -356,7 +419,6 @@ def main(page: ft.Page):
                     animate_opacity= 900,
                     animate_position= 950,
                     on_click=None
-                    
                 )
     
     #Card back for dares
@@ -399,11 +461,30 @@ def main(page: ft.Page):
                             ], 
                             
                     )
+    RestartButton = ft.Container(ft.Image(src="Restart.png"), on_click=restart)
     ContainerTitle = ft.Container(content=StackTitle, on_click=ShowGame)
     
+    async def restart(e):
+        green.top = 310
+        green.left = 127
+        green.opacity = 300
+        await asyncio.sleep(2)
+        red.top = 310
+        red.left = 1025
+        red.opacity = 300
+        await asyncio.sleep(2)
+        white.top = 260
+        white.left = 505
+        white.opacity = 300
+        await asyncio.sleep(2)
+        truths.top = 335
+        truths.left = 152
+
 
     #Rows & Columns
     MainRow = ft.Row(controls=[ContainerTitle])
+
+
 
     #Page add
     page.add(MainRow)
