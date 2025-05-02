@@ -64,21 +64,21 @@ def main(page: ft.Page):
         white.update()
 
         await asyncio.sleep(0.5)
-        truths.height = 330
-        truths.height =230
         truths.top = 335
         truths.left = 152
-        truths.content = ft.Image(src="CArdback.png", height=330, width=230)
+        truths.animate_opacity = 100
         truths.opacity = 1
+        truths.scale = 1 
+        truths.content = ft.Image(src="CardBAck.png", height=330, width=230)
         truths.update()
 
         await asyncio.sleep(0.5)
-        falses.height = 330
-        falses.height =230
         falses.top = 335
         falses.left = 1050
-        falses.content = ft.Image(src="CArdback.png",height=330, width=230)
         falses.opacity = 1
+        truths.animate_opacity = 100
+        falses.scale = 1 
+        falses.content = ft.Image(src="CardBAck.png", height=330, width=230)
         falses.update()
 
         await asyncio.sleep(0.5)
@@ -86,12 +86,13 @@ def main(page: ft.Page):
         Truth.left = 10
         Truth.opacity = 1
         Truth.animate_opacity = 300
+        Truth.offset = (0, 0)
 
         await asyncio.sleep(0.5)
         Dare.top = 100
         Dare.left = 910
         Dare.opacity = 1
-        Dare.animate_opacity = 300s
+        Dare.animate_opacity = 300
 
         await asyncio.sleep(0.5) 
         Or.top = 110
@@ -101,6 +102,7 @@ def main(page: ft.Page):
 
         await asyncio.sleep(0.5)
         Advise.opacity = 0
+        
         truths.on_click = None
         falses.on_click = None
         page.update()
