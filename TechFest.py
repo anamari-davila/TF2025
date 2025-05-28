@@ -51,14 +51,19 @@ def main(page: ft.Page):
     async def restart(e):
         green.opacity = 0.5
         green.update()
-
-        await asyncio.sleep(0.5)
+        if truths.opacity ==1:
+            white.bgcolor =ft.Colors.WHITE
+            page.update
+            await asyncio.sleep(0.5)
+            truths.opacity = 0
+            page.update()
         red.opacity = 0.5
         red.update()
     
         await asyncio.sleep(0.5)
         white.opacity=0
         page.update()
+        await asyncio.sleep(1)
         white.top = 260
         white.left = 505
         white.width = 425
@@ -66,26 +71,27 @@ def main(page: ft.Page):
         white.bgcolor = ft.Colors.WHITE
         white.update()
 
-        await asyncio.sleep(0.8)
-        white.opacity=0.5
+        await asyncio.sleep(0.5)
         truths.opacity= 0
         page.update()
-        
 
-        await asyncio.sleep(0.8)
+        await asyncio.sleep(0.6)
         falses.opacity = 0
         page.update()
+        await asyncio.sleep(0.5)
+        truths.scale = 1
+        white.opacity=0.5
         truths.left= 152
         truths.top= 335
         await asyncio.sleep(0.8)
+        falses.scale=1
         falses.top = 335
         falses.left = 1050
         truths.animate_opacity = 100
-        falses.scale = 1 
         falses.content = ft.Image(src="CardBAck.png", height=330, width=230)
         falses.update()
 
-        await asyncio.sleep(0.8)
+        await asyncio.sleep(0.6)
         Truth.animate_opacity = 300
         page.update()
         falses.opacity = 1
@@ -98,20 +104,20 @@ def main(page: ft.Page):
         Truth.animate_opacity = 300
         page.update()
 
-        await asyncio.sleep(0.8)
+        await asyncio.sleep(0.6)
         Dare.animate_opacity = 300
         page.update()
         Truth.opacity = 1
         truths.opacity =1 
         Dare.opacity = 0
         page.update()
-        await asyncio.sleep(0.8)
+        await asyncio.sleep(0.6)
         Dare.top = 100
         Dare.left = 910
         page.update()
         
 
-        await asyncio.sleep(0.8) 
+        await asyncio.sleep(0.6) 
         Dare.opacity = 1
         page.update()
         Or.top = 110
@@ -202,7 +208,7 @@ def main(page: ft.Page):
     async def truthcard(e):
         truths.on_click=None
         falses.on_click=None
-
+        page.update()
         #Erases Dare side
         falses.opacity = 0
         falses.update()
@@ -293,7 +299,7 @@ def main(page: ft.Page):
 
         truths.on_click=None
         falses.on_click=None
-
+        page.update()
         #Erases Dare side
         truths.opacity = 0
         truths.update()
@@ -411,14 +417,16 @@ def main(page: ft.Page):
         Truth.animate_opacity=200
         green.animate_opacity=200
         red.animate_opacity=200
-        truths.on_click=truthcard
-        falses.on_click=darecard
 
         page.update()
 
         await asyncio.sleep(2)
         ContainerTitle.on_click=None
         
+        page.update()
+        await asyncio.sleep(1)
+        truths.on_click=truthcard
+        falses.on_click=darecard
         page.update()
 
         
