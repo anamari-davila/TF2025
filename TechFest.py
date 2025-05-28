@@ -176,7 +176,7 @@ def main(page: ft.Page):
         truths.opacity = 0
         page.update()
         truths.content = ft.Video(
-            playlist=ft.VideoMedia(resource=rolledtruth),
+            playlist=[ft.VideoMedia(rolledtruth)],
             height=330,
             width=230,
             autoplay=True,
