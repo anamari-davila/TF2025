@@ -20,32 +20,32 @@ def main(page: ft.Page):
 
 #Roll Dares
     listdares = [
-    "assets/28.mp4",
-    "assets/30.mp4",
-    "assets/32.mp4",
-    "assets/34.mp4",
-    "assets/36.mp4",
-    "assets/38.mp4",
-    "assets/40.mp4",
-    "assets/42.mp4",
-    "assets/44.mp4"
+    "TF2025/assets/28.mp4",
+    "TF2025/assets/30.mp4",
+    "TF2025/assets/32.mp4",
+    "TF2025/assets/34.mp4",
+    "TF2025/assets/36.mp4",
+    "TF2025/assets/38.mp4",
+    "TF2025/assets/40.mp4",
+    "TF2025/assets/42.mp4",
+    "TF2025/assets/44.mp4"
 ]
 
 
     listtruths = [
-    "assets/2.mp4",
-    "assets/4.mp4",
-    "assets/6.mp4",
-    "assets/8.mp4",
-    "assets/10.mp4",
-    "assets/12.mp4",
-    "assets/14.mp4",
-    "assets/16.mp4",
-    "assets/18.mp4",
-    "assets/20.mp4",
-    "assets/22.mp4",
-    "assets/24.mp4",
-    "assets/26.mp4"
+    "TF2025/assets/2.mp4",
+    "TF2025/assets/4.mp4",
+    "TF2025/assets/6.mp4",
+    "TF2025/assets/8.mp4",
+    "TF2025/assets/10.mp4",
+    "TF2025/assets/12.mp4",
+    "TF2025/assets/14.mp4",
+    "TF2025/assets/16.mp4",
+    "TF2025/assets/18.mp4",
+    "TF2025/assets/20.mp4",
+    "TF2025/assets/22.mp4",
+    "TF2025/assets/24.mp4",
+    "TF2025/assets/26.mp4"
 ]
     async def restart(e):
         green.opacity = 0.5
