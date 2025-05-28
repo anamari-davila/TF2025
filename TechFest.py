@@ -30,7 +30,7 @@ def main(page: ft.Page):
     "assets/42.mp4",
     "assets/44.mp4"
 ]
-    #.
+    #
 
 
     listtruths = [
