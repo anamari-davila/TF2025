@@ -83,7 +83,7 @@ def main(page: ft.Page):
         white.opacity=0.5
         truths.left= 152
         truths.top= 335
-        await asyncio.sleep(0.7)
+        await asyncio.sleep(0.6)
         falses.scale=1
         falses.top = 335
         falses.left = 1050
@@ -97,7 +97,7 @@ def main(page: ft.Page):
         falses.opacity = 1
         Truth.opacity = 0
         page.update()
-        await asyncio.sleep(0.7)
+        await asyncio.sleep(0.6)
         truths.content = ft.Image(src="CardBAck.png", height=330, width=230)
         Truth.top = 100
         Truth.left = -40
