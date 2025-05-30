@@ -53,7 +53,7 @@ def main(page: ft.Page):
         green.update()
         if truths.opacity ==1:
             white.bgcolor =ft.Colors.WHITE
-            page.update
+            page.update()
             await asyncio.sleep(0.5)
             truths.opacity = 0
             page.update()
